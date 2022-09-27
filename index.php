@@ -3,6 +3,7 @@
 include_once __DIR__ . '/app/PetFood.php';
 include_once __DIR__ . '/app/PetToy.php';
 include_once __DIR__ . '/app/PetAccecssory.php';
+include_once __DIR__ . '/app/Cart.php';
 
 
 $name = 'Biscotti di pollo';
@@ -61,7 +62,12 @@ $size = 'M';
 $color = 'red';
 
 $Maglioncino = new PetAccessory($name, $price, $brand, $size, $color);
-
-
 var_dump($Cappottino);
 var_dump($Maglioncino);
+
+$data = [$Maglioncino, $carneAgnello];
+$order = new Cart($data);
+
+$order->calcTotal($data);
+
+var_dump($data, $order);
