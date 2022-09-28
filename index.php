@@ -29,18 +29,18 @@ var_dump($carneAgnello);
 $name = 'Osso di legno Java';
 $price = 4.90;
 $brand = 'Imac';
-$ForSizeAnimal = [];
+$size = 'S';
 $materials = 'legno';
 
-$ossoLegno = new PetToy($name, $price, $brand, $ForSizeAnimal, $materials);
+$ossoLegno = new PetToy($name, $price, $brand, $size, $materials);
 
 $name = 'Palla Intrecciata in Corda';
 $price = 3.00;
 $brand = 'Imac';
-$ForSizeAnimal = [];
+$size = null;
 $materials = 'Cotone naturale';
 
-$PallaIntrecciata = new PetToy($name, $price, $brand, $ForSizeAnimal, $materials);
+$PallaIntrecciata = new PetToy($name, $price, $brand, $size, $materials);
 
 
 var_dump($ossoLegno);
@@ -50,7 +50,7 @@ var_dump($PallaIntrecciata);
 $name = 'Cappottino Frozen';
 $price = 44.00;
 $brand = 'Musi';
-$size = 'S';
+$size = 'L';
 $color = 'black';
 
 $Cappottino = new PetAccessory($name, $price, $brand, $size, $color);
@@ -65,9 +65,9 @@ $Maglioncino = new PetAccessory($name, $price, $brand, $size, $color);
 var_dump($Cappottino);
 var_dump($Maglioncino);
 
-$data = [$Maglioncino, $carneAgnello];
-$order = new Cart($data);
+$shopCart = [$Maglioncino, $carneAgnello];
+$order = new Cart($shopCart);
 
-$order->calcTotal($data);
+$order->calcTotal($shopCart);
 
-var_dump($data, $order);
+var_dump($shopCart, $order);
