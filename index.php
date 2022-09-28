@@ -65,9 +65,15 @@ $Maglioncino = new PetAccessory($name, $price, $brand, $size, $color);
 var_dump($Cappottino);
 var_dump($Maglioncino);
 
-$shopCart = [$Maglioncino, $carneAgnello];
+$shopCart = [$Cappottino];
 $order = new Cart($shopCart);
 
-$order->calcTotal($shopCart);
+try{
+    $order->calcTotal($shopCart);    
+} catch(Exception $e) {
+    echo $e->getMessage();
+}
+
+
 
 var_dump($shopCart, $order);
